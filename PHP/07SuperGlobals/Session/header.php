@@ -30,6 +30,12 @@
           <a class="nav-link" href="pricing.php">Pricing</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="productlist.php">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="viewCart.php">Cart</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="about.php">About</a>
         </li>
         <li class="nav-item dropdown">
