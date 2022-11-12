@@ -56,6 +56,20 @@ form{
 					<label for="username">User Name</label>
 					<input type="text" placeholder="Enter User Name" class="form-control form-control-sm" name="username" id="username" title="tops?123">
 				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="username">First Name</label>
+							<input type="text" placeholder="Enter First Name" class="form-control form-control-sm" name="fname" id="fname">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="username">Last Name</label>
+							<input type="text" placeholder="Enter Last Name" class="form-control form-control-sm" name="lname" id="lname" >
+						</div>
+					</div>
+				</div>
 				<div class="form-group">
 					<label for="exampleInputEmail1">Email address</label>
 					<input type="email" placeholder="xxxxx@xxx.xxxx" class="form-control form-control-sm" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -63,6 +77,34 @@ form{
 				<div class="form-group">
 					<label for="exampleInputPassword1">Password</label>
 					<input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputMobile">Mobile</label>
+					<input type="tel" name="Mobile" class="form-control form-control-sm" id="exampleInputMobile">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputGender">Gender</label>
+					<input type="radio" name="gender" value="Male" id="Male"><label for="Male">Male</label>
+					<input type="radio" name="gender" value="Male" id="Female"> <label for="Female">Female</label>
+				</div>
+				<div class="form-group">
+					<label for="exampleInput">Hoobies</label>
+					<input type="checkbox" name="chk[]" id="Cricket" value="Cricket"><label for="Cricket">Cricket</label>
+					<input type="checkbox" name="chk[]" id="Music" value="Music"><label for="Music">Music</label>
+					<input type="checkbox" name="chk[]" id="Reading" value="Reading"><label for="Reading">Reading</label>
+					<input type="checkbox" name="chk[]" id="Cooking" value="Cooking"><label for="Cooking">Cooking</label>
+				</div>
+				<div class="form-group">
+					<label for="exampleInput">City</label>
+					<select  class="form-control form-control-sm"  name="city" id="city">
+						<option value="">Select City</option>
+						<option value="1">Ahemedabad</option>
+						<option value="2">Baroda</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="exampleInput">Address</label>
+					<textarea name="address" id="address" rows="3" class="form-control"></textarea>	
 				</div>
 				<button type="submit" name="btn-regist" class="btn btn-primary btn-block">Sign in</button>
 			</form>
