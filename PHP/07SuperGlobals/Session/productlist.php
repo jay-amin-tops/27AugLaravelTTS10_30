@@ -3,25 +3,25 @@
 require_once("header.php");
 
 
-$num    = 371;
-$sum    = 0;
-$temp   = $num;
-while($temp!= 0){
-    $rem    =   $temp%10;
-    $sum    =   $sum+($rem*$rem*$rem); 
-    $temp   =   $temp/10;
-    echo $temp."<br>";
+// $num    = 371;
+// $sum    = 0;
+// $temp   = $num;
+// while($temp!= 0){
+//     $rem    =   $temp%10;
+//     $sum    =   $sum+($rem*$rem*$rem); 
+//     $temp   =   $temp/10;
+//     echo $temp."<br>";
 
-}
-if($num == $sum){
-   echo "Armstrong number"; 
-}
-else{
-   echo  "not an armstrong number";
-}
+// }
+// if($num == $sum){
+//    echo "Armstrong number"; 
+// }
+// else{
+//    echo  "not an armstrong number";
+// }
 
 
-exit;
+// exit;
 // require_once("header.php")
 // require_once("header1.php"); 
 // require_once("header.php"); 

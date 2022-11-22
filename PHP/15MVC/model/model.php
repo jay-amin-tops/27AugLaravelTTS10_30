@@ -7,7 +7,7 @@ class model{
     // public $Connection = new mysqli("host_name","username","password","databasename");
     // public $Connection = new mysqli("localhost","root","","masterdatabase");
     public function __construct() {
-        echo "called const";
+        // echo "called const";
         try {
             $this->Connection = new mysqli("localhost","root","","masterdatabase");
             // echo "<pre>";
@@ -56,6 +56,20 @@ class model{
     }
     public function select($tbl){
         $SQL = "SELECT * FROM $tbl"; //this is a dynamic parameter recv krya 
+        $SQLEx = $this->Connection->query($SQL);
+        if ($SQLEx->num_rows > 0) {
+            while ($Fetch = $SQLEx->fetch_object()) {
+                $FetchData[] = $Fetch;
+            }
+            $Respose["Code"] = "1";
+            $Respose["Msg"] = "Success";
+            $Respose["Data"] = $FetchData;
+        } else {
+            $Respose["Code"] = "0";
+            $Respose["Msg"] = "Try again";
+            $Respose["Data"] = 0;
+        }
+        return $Respose;
         // echo $SQL; 
     }
     public function insert($tbl,$data){
@@ -65,7 +79,7 @@ class model{
         $ValsData = implode("','",$data) ;
         // print_r($KeysData);
         // echo "</pre>";
-        echo $SQL = "INSERT INTO $tbl($KeysData)VALUES('$ValsData')";
+        $SQL = "INSERT INTO $tbl($KeysData)VALUES('$ValsData')";
         $SQLEx = $this->Connection->query($SQL);
         if ($SQLEx > 0) {
             $Respose["Code"] = "1";
