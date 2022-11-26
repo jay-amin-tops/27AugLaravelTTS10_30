@@ -113,10 +113,12 @@ class controller extends model{
                     print_r($_REQUEST['userid']);
                     break;    
                 case '/edituserdata':
-                    print_r($_REQUEST);
-                    print_r($_REQUEST['userid']);
+                    // print_r($_REQUEST);
+                    // print_r($_REQUEST['userid']);
+                    // exit;
+                    $usersDataById = $this->select("users",array("id"=>$_GET['userid'],"status"=>1));
                     include_once("views/admin/adminheader.php");
-                    include_once("views/admin/editusers.php");
+                    include_once("views/admin/edituser.php");
                     include_once("views/admin/adminfooter.php");
                     break;    
                 default:

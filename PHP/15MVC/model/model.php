@@ -54,8 +54,17 @@ class model{
         }
         return $Respose;
     }
-    public function select($tbl){
+    public function select($tbl,$where=""){
         $SQL = "SELECT * FROM $tbl"; //this is a dynamic parameter recv krya 
+        if ($where != "") {
+            $SQL .= " WHERE "; 
+            foreach ($where as $key => $value) {
+                $SQL .= " $key = $value AND"; 
+            }
+            $SQL = rtrim($SQL,"AND");
+        }
+        // echo $SQL;
+        // exit; 
         $SQLEx = $this->Connection->query($SQL);
         if ($SQLEx->num_rows > 0) {
             while ($Fetch = $SQLEx->fetch_object()) {
