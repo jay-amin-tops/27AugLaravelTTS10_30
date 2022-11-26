@@ -120,6 +120,10 @@ class controller extends model{
                     include_once("views/admin/adminheader.php");
                     include_once("views/admin/edituser.php");
                     include_once("views/admin/adminfooter.php");
+
+                    $data=array("username"=>$_REQUEST['username'],"gender"=>$_REQUEST['gender']);
+                        // print_r($newArray);
+                        $res = $this->update('users',$data,array("id"=>$_REQUEST['userid']));
                     break;    
                 default:
                     include_once("views/header.php");

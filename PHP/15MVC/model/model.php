@@ -101,14 +101,41 @@ class model{
         }
         return $Respose;
     }
-    public function update(){
-        $SQL = "UPDATE SET ";
-    }
+    public function update($tbl,$data,$where){
+ echo "<pre>";
+        print_r($data);
+
+        // $kd=implode("','",array_keys($data));
+        // $vd=implode("','",$data);
+        // array_merge($kd,)
+        // for ($i=0; $ ; $i++) { 
+            # code...
+        
+//         UPDATE table_name
+// SET column1 = value1, column2 = value2, ...
+// WHERE condition;
+     
+
+$SQL = "UPDATE users SET ";
+foreach ($data as $key => $value) {
+    $SQL.=" $key ='$value',";
+    // rtrim();
+
+}
+$SQL= rtrim($SQL,",");
+$SQL .= " WHERE "; 
+foreach ($where as $key => $value) {
+    $SQL .= " $key = $value AND"; 
+}
+$SQL = rtrim($SQL,"AND");
+echo $SQL;
+//    print_r($kd);
+ }
     public function delete(){
         $SQL = "DELETE FROM ";
     }
 }
-$model = new model;
+// $model = new model;
 // $model->select("user");
 // echo "<br>";
 // $model->select("city");
@@ -120,7 +147,8 @@ $model = new model;
 // $res = $model->login('admin',"123");
 // print_r($res);
 // echo "<br>";
-// $res = $model->insert('users',array("username"=>"test","password"=>"123","gender"=>"Male","city"=>"1","hobby"=>"Circket,Music","address"=>"test"));
+// $res = $model->update('users',array("username"=>"test","password"=>"123",
+// "gender"=>"Male","city"=>"1","hobby"=>"Circket,Music","address"=>"test"),array("userid"=>5));
 // print_r($res);
 // echo "<br>";
 
