@@ -6,15 +6,16 @@
           <div class="col-sm-12">
             <div class="card-body">
               <?php 
-              echo "<pre>";
-              print_r($usersDataById['Data'][0]);
-              echo "</pre>";
+              // echo "<pre>";
+              // print_r($usersDataById['Data']);
+              // echo "</pre>";
               ?>
+              <form method="post">
               <div class="row">
                 <div class="col-md-8">
                   <div class="row mt-3">
                     <div class="col">
-                      <input type="text" class="form-control" value="<?php echo $usersDataById['Data'][0]->username;?>" name="username" id="username">
+                      <input type="text" class="form-control" value="<?php echo ($usersDataById['Data'][0]->username) ?? "no";?>" name="username" id="username">
                     </div>
                   </div>
                   <div class="row mt-3">
@@ -28,7 +29,7 @@
                       <input type="text" class="form-control" value="<?php echo $explodeFullname[0];?>" name="fname" id="fname">
                     </div>
                     <div class="col">
-                      <input type="text" class="form-control" value="<?php echo $explodeFullname[1];?>" name="lname" id="lname">
+                      <input type="text" class="form-control" value="<?php echo $explodeFullname[1] ?? "";?>" name="lname" id="lname">
                     </div>
                   </div>
                   <div class="row mt-3">
@@ -55,12 +56,14 @@
                   </div>
                   <div class="row mt-3">
                     <div class="col">
-                      <button type="submit">Update</button>
+                      <button name="btn-update" type="submit">Update</button>
+                      
                       <!-- <select name="" id=""></select> -->
                     </div>
                   </div>
                 </div>
               </div>
+              </form>
             </div>
           </div>
         </div>

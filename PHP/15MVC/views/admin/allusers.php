@@ -15,7 +15,8 @@
                   <th>Action</th>
                 </tr>
                 <tbody>
-                  <?php $i=1; foreach ($allUsers['Data'] as $key => $value) { ?>
+                  <?php $i = 1;
+                  foreach ($allUsers['Data'] as $key => $value) { ?>
                     <tr>
                       <td><?php echo $i; ?></td>
                       <td><?php echo $value->username; ?></td>
@@ -23,11 +24,14 @@
                       <td><?php echo $value->email; ?></td>
                       <td><?php echo $value->mobile; ?></td>
                       <td>
-                        <a href="edituserdata?userid=<?php echo $value->id; ?>" title="Update"> <i class="menu-icon tf-icons bx bx-edit"></i></a>
+                        <?php if ($value->status == 1) { ?>
+                          <a href="edituserdata?userid=<?php echo $value->id; ?>" title="Update"> <i class="menu-icon tf-icons bx bx-edit"></i></a>
+                        <?php } ?>
                         <a href="deleteuserdata?userid=<?php echo $value->id; ?>" title="Delete"> <i class="menu-icon tf-icons bx bx-trash"></i></a>
                       </td>
                     </tr>
-                  <?php $i++; } ?>
+                  <?php $i++;
+                  } ?>
                 </tbody>
               </table>
             </div>

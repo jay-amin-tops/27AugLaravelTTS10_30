@@ -111,6 +111,12 @@ class controller extends model{
                     echo "<pre>";
                     print_r($_REQUEST);
                     print_r($_REQUEST['userid']);
+                    $res = $this->delete('users',array("id"=>$_REQUEST['userid']));
+                    if ($res['Code'] == "1") {
+                        header("location:viewalluser");
+                    }else{
+                        echo "<script>alert('Error while inserting try after sometime !!!!')</script>";
+                    }
                     break;    
                 case '/edituserdata':
                     // print_r($_REQUEST);
@@ -121,9 +127,26 @@ class controller extends model{
                     include_once("views/admin/edituser.php");
                     include_once("views/admin/adminfooter.php");
 
-                    $data=array("username"=>$_REQUEST['username'],"gender"=>$_REQUEST['gender']);
-                        // print_r($newArray);
+                    if (isset($_POST['btn-update'])) {
+                        
+                        $hobby = implode(",",$_REQUEST['chk']);
+                        $fullName = $_REQUEST['fname']." ".$_REQUEST['lname'];
+                        $data=array("username"=>$_REQUEST['username'],
+                        "fullname"=>$fullName,
+                        "gender"=>$_REQUEST['gender'],
+                        "hobby"=>$hobby,
+                        "email"=>$_REQUEST['email'],
+                        "mobile"=>$_REQUEST['mobile']);
+                            // print_r($newArray);
                         $res = $this->update('users',$data,array("id"=>$_REQUEST['userid']));
+                        echo "<pre>";
+                        print_r($res);
+                        if ($res['Code'] == "1") {
+                            header("location:viewalluser");
+                        }else{
+                            echo "<script>alert('Error while inserting try after sometime !!!!')</script>";
+                        }
+                    }
                     break;    
                 default:
                     include_once("views/header.php");
