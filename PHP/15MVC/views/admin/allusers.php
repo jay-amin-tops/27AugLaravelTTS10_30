@@ -1,3 +1,4 @@
+
 <div class="container-xxl flex-grow-1 container-p-y">
   <div class="row">
     <div class="col-lg-12 mb-4 order-0">
@@ -11,6 +12,7 @@
                   <th>UserName</th>
                   <th>Gender</th>
                   <th>Email</th>
+                  <th>Image</th>
                   <th>Mobile</th>
                   <th>Action</th>
                 </tr>
@@ -22,6 +24,7 @@
                       <td><?php echo $value->username; ?></td>
                       <td><?php echo $value->gender; ?></td>
                       <td><?php echo $value->email; ?></td>
+                      <td> <img src="uploads/<?php echo $value->prof_pic; ?>" width="100px" alt=""> </td>
                       <td><?php echo $value->mobile; ?></td>
                       <td>
                         <?php if ($value->status == 1) { ?>

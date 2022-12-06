@@ -65,6 +65,11 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="<?php echo $this->static_base_url;?>/admin_assets/js/config.js"></script>
+    <style>
+  th{
+    text-align: center;
+  }
+</style>
   </head>
 
   <body>

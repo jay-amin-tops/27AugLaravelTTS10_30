@@ -86,12 +86,13 @@ class controller extends model{
                         // print_r($res);
                         if ($res['Code'] == "1") {
                             echo "<script>alert('Congratulation !!!!')</script>";
-                            header("localhost:login");
+                            header("location:login");
                         }else{
                             echo "<script>alert('Error while inserting try after sometime !!!!')</script>";
                         }
                     }
                     break;
+                
                 case '/admindashboad':
                     include_once("views/admin/adminheader.php");
                     echo "called";
@@ -118,6 +119,41 @@ class controller extends model{
                         echo "<script>alert('Error while inserting try after sometime !!!!')</script>";
                     }
                     break;    
+                case '/addnewuser':
+                    include_once("views/admin/adminheader.php");
+                    include_once("views/admin/addnewuser.php");
+                    include_once("views/admin/adminfooter.php");
+                    if (isset($_POST['btn-add'])) {
+                        // echo"<pre>";
+                        // print_r($_REQUEST);
+                        // print_r($_FILES);
+                        if ($_FILES['prof_pic']['error'] == 0) {
+                            $image = $_FILES['prof_pic']['name'];
+                            move_uploaded_file($_FILES['prof_pic']['tmp_name'], "uploads/$image");
+                        }else{
+                            $image = "default.jpg";
+                        }
+                        // echo $image;
+                        // exit;
+                        // $res = $this->insert('users',array("username"=>"test","password"=>"123","gender"=>"Male","city"=>"1","hobby"=>"Circket,Music"));
+                        $hobby = implode(",",$_REQUEST['chk']);
+                        $fullName = $_REQUEST['fname']." ".$_REQUEST['lname'];
+                        // print_r($hobby);
+
+                        unset($_REQUEST['chk']);
+                        unset($_REQUEST['fname']);
+                        unset($_REQUEST['lname']);
+                        array_pop($_REQUEST);
+                        // array_pop($_REQUEST);
+                        $newArray=array_merge($_REQUEST,array("fullname"=>$fullName,"hobby"=>$hobby,"prof_pic"=>$image));
+                        // echo "<pre>";
+                        // print_r($newArray);
+                        // echo "</pre>";
+                        // exit;
+                        $res = $this->insert('users',$newArray);
+                        header("location:viewalluser");
+                    }
+                    break;
                 case '/edituserdata':
                     // print_r($_REQUEST);
                     // print_r($_REQUEST['userid']);
@@ -131,16 +167,25 @@ class controller extends model{
                         
                         $hobby = implode(",",$_REQUEST['chk']);
                         $fullName = $_REQUEST['fname']." ".$_REQUEST['lname'];
+                        if ($_FILES['prof_pic']['error'] == 0) {
+                            $image = $_FILES['prof_pic']['name'];
+                            move_uploaded_file($_FILES['prof_pic']['tmp_name'], "uploads/$image");
+                        }else{
+                            $image = $_REQUEST['prof_pic_old'];
+                        }
                         $data=array("username"=>$_REQUEST['username'],
                         "fullname"=>$fullName,
                         "gender"=>$_REQUEST['gender'],
                         "hobby"=>$hobby,
                         "email"=>$_REQUEST['email'],
+                        "prof_pic"=>$image,
                         "mobile"=>$_REQUEST['mobile']);
-                            // print_r($newArray);
+                        // echo "<pre>";
+                        // print_r($newArray);
                         $res = $this->update('users',$data,array("id"=>$_REQUEST['userid']));
-                        echo "<pre>";
-                        print_r($res);
+                        // print_r($res);
+                        // echo "</pre>";
+                        
                         if ($res['Code'] == "1") {
                             header("location:viewalluser");
                         }else{
@@ -161,5 +206,3 @@ class controller extends model{
     }
 }
 $controller = new controller;
-
-?>

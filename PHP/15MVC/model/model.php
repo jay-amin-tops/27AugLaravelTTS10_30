@@ -94,6 +94,8 @@ class model
         // print_r($KeysData);
         // echo "</pre>";
         $SQL = "INSERT INTO $tbl($KeysData)VALUES('$ValsData')";
+        // echo $SQL;
+        // exit;
         $SQLEx = $this->Connection->query($SQL);
         if ($SQLEx > 0) {
             $Respose["Code"] = "1";

@@ -10,7 +10,7 @@
               // print_r($usersDataById['Data']);
               // echo "</pre>";
               ?>
-              <form method="post">
+              <form method="post" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-md-8">
                   <div class="row mt-3">
@@ -35,6 +35,12 @@
                   <div class="row mt-3">
                     <div class="col">
                       <input type="text" class="form-control" value="<?php echo $usersDataById['Data'][0]->mobile;?>" name="mobile" id="mobile">
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
+                      <input type="file" class="form-control"  name="prof_pic" id="prof_pic">
+                      <input type="hidden" class="form-control"  name="prof_pic_old" value="<?php echo $usersDataById['Data'][0]->prof_pic; ?>" id="prof_pic_old">
                     </div>
                   </div>
                   <div class="row mt-3">

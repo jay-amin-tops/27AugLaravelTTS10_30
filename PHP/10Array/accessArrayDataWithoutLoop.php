@@ -16,6 +16,7 @@ function AccessArrayUseFilter($arRec){
 }
 $arrFilter = array_filter($arr,"AccessArrayUseFilter");
 echo "<pre>";
+echo "Filter Res<br>";
 // print_r($arr);
 print_r($arrFilter);
 
@@ -24,6 +25,7 @@ function AccessArrayUseMap($arRec){
 }
 $arrMapRes = array_map("AccessArrayUseMap",$arr);
 // print_r($arr);
+echo "Filter Res<br>";
 print_r($arrMapRes);
 
 function AccessArrayUseWalk($arRec,$arrD){
