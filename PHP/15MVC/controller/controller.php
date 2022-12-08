@@ -93,6 +93,32 @@ class controller extends model{
                     }
                     break;
                 
+                case '/forgot':
+                    include_once("views/header.php");
+                    include_once("views/forgot.php");
+                    include_once("views/footer.php");
+                    if (isset($_REQUEST['save'])) {
+                        $randOTP = rand(1000,9999);
+                        $mailLink = "http://localhost/laravel/27AugLaravelTTS10_30/27AugLaravelTTS10_30/PHP/15MVC/updatepassword";
+                        // mail()
+                        $data = array("otp"=>$randOTP);
+                        $res = $this->update('users',$data,array("email"=>$_REQUEST['email']));
+                    }
+                    break;    
+                case '/updatepassword':
+                    include_once("views/admin/adminheader.php");
+                    
+                    include_once("views/admin/adminfooter.php");
+                    if (isset($_REQUEST['updatepwd'])) {
+                        $MatchDataOTP = $this->select("users",array("otp"=>$_REQUEST['otp'],"email"=>$_REQUEST['email']));
+                        $data = array("otp"=>$randOTP);
+                        if ($MatchDataOTP['Code'] == 1) {
+                            $res = $this->update('users',$data,array("password"=>$_REQUEST['password'],"otp"=>""));
+                        }else{
+                            echo "Invalid OTP";
+                        }
+                    }
+                    break;    
                 case '/admindashboad':
                     include_once("views/admin/adminheader.php");
                     echo "called";

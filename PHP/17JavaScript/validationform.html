@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" onblur="checkrequire(this)" name="username" id="username"><span id="errorUname"></span> <BR>
+    <input type="text" name="password" onblur="checkrequire(this)" id="password"> </BR>
+    <input type="text" name="email" onblur="checkrequire(this)" id="email"> <BR/>
+    <button onclick="btnclick()">Click</button>
+<SCRipt>
+function checkrequire(kaipan) {
+    // let uname = document.getElementById("username")
+    // let uname = document.getElementsByClassName
+    // let uname = document.getElementsByName
+    // let uname = document.getElementsByTagName
+    // let uname = document.querySelector
+    // let uname = document.querySelectorAll("#id")
+    // let uname = document.querySelectorAll(".class")
+    // console.log(uname);
+    // console.log(uname.value);
+    if (kaipan.value == "") {
+        console.log("called required");
+        // document.getElementById("errorUname").innerHTML = "<b>This field is required</b>"
+        // document.getElementById("errorUname").innerText = "<b>This field is required</b>"
+    } else {
+        console.log("Done");
+        // document.getElementById("errorUname").innerHTML = ""
+    }
+}
+</SCRipt>
+</body>
+</html>
