@@ -72,8 +72,34 @@ form{
 				</div>
 				<div class="form-group">
 					<label for="exampleInputEmail1">Email address</label>
-					<input type="email" placeholder="xxxxx@xxx.xxxx" class="form-control form-control-sm" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+					<input type="email" onkeyup="checkemail(this,'emailError')" placeholder="xxxxx@xxx.xxxx" class="form-control form-control-sm" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+					<span id="emailError"></span>
 				</div>
+				<script>
+					function checkemail(e,sp) {
+						// console.log(e.value);
+						$.ajax({
+							type:"post",
+							data:{"email":e.value},
+							url:"http://localhost/laravel/27AugLaravelTTS10_30/27AugLaravelTTS10_30/PHP/API/emailalreadyexist",
+							success:function (response){
+								// console.log(response);
+								ObjectData = JSON.parse(response)
+								// console.log(ObjectData.Code);
+								if (ObjectData.Code == 0) {
+									// console.log("inside if");
+									// document.getElementById(sp).innerHTML="valid"
+									$("#"+sp).html("Valid")
+									// $("#sp").html("Valid")
+								} else {
+									document.getElementById(sp).innerHTML="invalid"
+									// console.log("inside else");
+									$("#"+sp).html("already exsist")
+								}
+							}
+						})
+					}
+				</script>
 				<div class="form-group">
 					<label for="exampleInputPassword1">Password</label>
 					<input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1">

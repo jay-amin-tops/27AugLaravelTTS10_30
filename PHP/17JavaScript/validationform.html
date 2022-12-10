@@ -7,12 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" onblur="checkrequire(this)" name="username" id="username"><span id="errorUname"></span> <BR>
-    <input type="text" name="password" onblur="checkrequire(this)" id="password"> </BR>
-    <input type="text" name="email" onblur="checkrequire(this)" id="email"> <BR/>
-    <button onclick="btnclick()">Click</button>
+    <form method="post">
+        <input type="text"  class="req" onblur="checkrequire(this,'errorUname')" name="username" id="username" required><span id="errorUname"></span> <BR>
+        <input type="text" class="req" name="password" onblur="checkrequire(this,'errorPass')" id="password"> <span id="errorPass"></span> </BR>
+        <input type="text" class="req" name="email" onblur="checkrequire(this,'errorEmail')" id="email"><span id="errorEmail"></span>  <BR/>
+        <button type="submit">Click</button>
+    </form>
 <SCRipt>
-function checkrequire(kaipan) {
+// function btnclick(kaipan) {
+//     let inpByClass=document.getElementsByClassName('req')
+//     console.log(inpByClass);
+//     for (let index = 0; index < inpByClass.length; index++) {
+//         const element = inpByClass[index];
+//         console.log(element);
+//     }
+// }
+function checkrequire(kaipan,spnid) {
     // let uname = document.getElementById("username")
     // let uname = document.getElementsByClassName
     // let uname = document.getElementsByName
@@ -24,10 +34,11 @@ function checkrequire(kaipan) {
     // console.log(uname.value);
     if (kaipan.value == "") {
         console.log("called required");
-        // document.getElementById("errorUname").innerHTML = "<b>This field is required</b>"
+        document.getElementById(spnid).innerHTML = "<b>This field is required</b>"
         // document.getElementById("errorUname").innerText = "<b>This field is required</b>"
     } else {
         console.log("Done");
+        document.getElementById(spnid).innerHTML = ""
         // document.getElementById("errorUname").innerHTML = ""
     }
 }

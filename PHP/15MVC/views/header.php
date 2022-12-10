@@ -21,6 +21,7 @@
     <!-- Custom Theme files -->
     <link href="<?php echo $this->static_base_url;?>css/style.css" rel='stylesheet' type='text/css' />
     <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
        <script src="<?php echo $this->base_url; ?>js/jquery-1.11.1.min.js"></script>
     <!-- //js -->
     <!-- start-smoth-scrolling -->
