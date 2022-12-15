@@ -57,8 +57,7 @@ class model
         }
         return $Respose;
     }
-    public function select($tbl, $where = "")
-    {
+    public function select($tbl, $where = ""){
         $SQL = "SELECT * FROM $tbl"; //this is a dynamic parameter recv krya 
         if ($where != "") {
             $SQL .= " WHERE ";
@@ -69,6 +68,37 @@ class model
         }
         // echo $SQL;
         // exit; 
+        $SQLEx = $this->Connection->query($SQL);
+        if ($SQLEx->num_rows > 0) {
+            while ($Fetch = $SQLEx->fetch_object()) {
+                $FetchData[] = $Fetch;
+            }
+            $Respose["Code"] = "1";
+            $Respose["Msg"] = "Success";
+            $Respose["Data"] = $FetchData;
+        } else {
+            $Respose["Code"] = "0";
+            $Respose["Msg"] = "Try again";
+            $Respose["Data"] = 0;
+        }
+        return $Respose;
+        // echo $SQL; 
+    }
+    public function select_join($tbl,$join, $where = ""){
+        $SQL = "SELECT * FROM $tbl"; //this is a dynamic parameter recv krya 
+        $SQL .= " JOIN ";
+        foreach ($join as $jkey => $jvalue) {
+            $SQL .= " $jkey ON $jvalue ";
+        }
+        if ($where != "") {
+            $SQL .= " WHERE ";
+            foreach ($where as $key => $value) {
+                $SQL .= " $key = $value AND";
+            }
+            $SQL = rtrim($SQL, "AND");
+        }
+        echo $SQL;
+        exit; 
         $SQLEx = $this->Connection->query($SQL);
         if ($SQLEx->num_rows > 0) {
             while ($Fetch = $SQLEx->fetch_object()) {

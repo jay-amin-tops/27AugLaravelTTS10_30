@@ -180,6 +180,14 @@ class controller extends model{
                         header("location:viewalluser");
                     }
                     break;
+                case '/joinexample':
+                    $this->select_join("users",array("city"=>"city.id=users.cityid","state"=>"state.id=users.cityid"));
+                    break;
+                case '/ajaxcrud':
+                    include_once("views/admin/adminheader.php");
+                    include_once("views/admin/ajaxcrud.php");
+                    include_once("views/admin/adminfooter.php");
+                    break;
                 case '/edituserdata':
                     // print_r($_REQUEST);
                     // print_r($_REQUEST['userid']);

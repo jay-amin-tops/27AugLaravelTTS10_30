@@ -32,7 +32,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="<?php echo $this->static_base_url;?>/admin_assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="<?php echo $this->static_base_url; ?>/admin_assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,17 +41,17 @@
 
     <!-- Icons. Uncomment required icon fonts -->
     
-    <link rel="stylesheet" href="<?php echo $this->static_base_url;?>/admin_assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="<?php echo $this->static_base_url; ?>/admin_assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="assets/admin_assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="<?php echo $this->static_base_url;?>/admin_assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="<?php echo $this->static_base_url;?>/admin_assets/css/demo.css" />
+    <link rel="stylesheet" href="<?php echo $this->static_base_url; ?>/admin_assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="<?php echo $this->static_base_url; ?>/admin_assets/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="<?php echo $this->static_base_url;?>/admin_assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?php echo $this->static_base_url; ?>/admin_assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
-    <link rel="stylesheet" href="<?php echo $this->static_base_url;?>/admin_assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="<?php echo $this->static_base_url; ?>/admin_assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
     <style>
@@ -60,11 +60,11 @@
       }
     </style>
     <!-- Helpers -->
-    <script src="<?php echo $this->static_base_url;?>/admin_assets/vendor/js/helpers.js"></script>
+    <script src="<?php echo $this->static_base_url; ?>/admin_assets/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="<?php echo $this->static_base_url;?>/admin_assets/js/config.js"></script>
+    <script src="<?php echo $this->static_base_url; ?>/admin_assets/js/config.js"></script>
     <style>
   th{
     text-align: center;
@@ -157,6 +157,12 @@
                 </li>
               </ul>
             </li>
+            <li class="menu-item">
+                  <a href="ajaxcrud" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-user"></i>  
+                  <div data-i18n="Without menu">Ajax</div>
+                  </a>
+              </li>
 
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Pages</span>
@@ -213,7 +219,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="<?php echo $this->static_base_url;?>/admin_assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="<?php echo $this->static_base_url; ?>/admin_assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -222,7 +228,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="<?php echo $this->static_base_url;?>/admin_assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="<?php echo $this->static_base_url; ?>/admin_assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
