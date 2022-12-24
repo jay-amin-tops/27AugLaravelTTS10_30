@@ -98,6 +98,14 @@ class controller extends model{
                     $allUsers = $this->select("users");
                     echo json_encode($allUsers);
                     break;    
+                case '/userdatabyid':
+                    // echo "<pre>";
+                    // print_r($_REQUEST);
+                    $data = json_decode(file_get_contents('php://input'), true);
+                    // print_r($data['id']);
+                    $UsersDataByID = $this->select("users",array("id"=>$data['id']));
+                    echo json_encode($UsersDataByID);
+                    break;    
                 case '/emailalreadyexist':
                     // print_r($_REQUEST['email']);
                     $allUsers = $this->select("users",array("email"=>$_REQUEST['email']));
