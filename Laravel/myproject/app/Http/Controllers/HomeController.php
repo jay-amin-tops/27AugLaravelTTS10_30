@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // dd(\Auth::user()->role_id);
+        if (\Auth::user()->role_id == 1) {
+            return view('admin.dashbaord');
+        } else {
+            # code...
+            return view('home');
+        }
+        
     }
 }
